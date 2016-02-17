@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Dynamic Table</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href="http://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
+		<!-- jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<!-- theme js/css -->
+		<script src="js/config.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-panels.min.js"></script>
+	
+		<!-- DataTables CSS -->
+		<link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
+		<link rel="stylesheet" type="text/css" href="css/dataTables.tableTools.css">	
+		<!-- DataTables -->
+		<script type="text/javascript" charset="utf8" src="js/jquery.dataTables.js"></script>
+		<script type="text/javascript" charset="utf8" src="js/dataTables.tableTools.js"></script>
+		
+		<!-- dropzone -->
+		<script src="js/dropzone.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/dropzone.css">
+		
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script><!-- initialize datatable -->
+			$(document).ready(function () {
+				$('#Table1').DataTable( {
+                    dom: 'T<"clear">lfrtip',
+                    tableTools: {
+                        "sSwfPath": "http://cdn.datatables.net/tabletools/2.2.4/swf/copy_csv_xls_pdf.swf"
+                    }
+                });
+				$("#store").click(addRow); // add row upon button click
+				$("#clearTable").click(clear); // clear table on button click
+				var table = $('#Table1').DataTable(); // remove tr on remove click
+				$('#Table1 tbody').on( 'click', '[type=button]', function () {
+					table
+						.row( $(this).parents('tr') )
+						.remove()
+						.draw();
+				} );
+			});	
+		</script>
+		<script><!-- addrow -->
+			function addRow() {
+				$('#Table1').dataTable().fnAddData( [
+					$('#col1').val(),
+					$('#col2').val(),
+					$('#col3').val(),
+					$('#col4').val(),
+					$('#col5').val(),
+					$('#col6').val(),
+					$('#col7').val(),
+					$('#col8').val(),
+					"<input class='noExl' type='button' value='remove row?'/>" ] );
+
+			}
+			function clear() {
+				$('#Table1').DataTable().clear().draw();
+
+			}
+		</script>
+	</head>
+	<body>
+	<!-- ********************************************************* -->
+		<div id="header-wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="12u">
+						
+						<header id="header">
+							<h1><a href="#" id="logo">Dynamic Table</a></h1>
+							<nav id="nav">
+								<input type='button' id='clearTable' class="button" value='Clear Table' />
+							</nav>
+						</header>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="banner-wrapper">
+			<div class="container">
+				<div class="row">
+					<div id='data' class="12u">
+					
+						    <table id="Table1" class="display responsive no-wrap"> 
+								<thead> 
+								<tr> 
+									<th>Domain</th> 
+									<th>gTld</th> 
+									<th>Category</th> 
+									<th>Price</th> 
+									<th>Contact</th>
+									<th>Title</th>
+									<th>Description</th>
+									<th>Directions</th>
+									<th>Remove</th> 
+								</tr> 
+								</thead> 
+								<tbody id='bodyT'> 
+      <tr><td><a href="http://geogram.co">geogram.co</a></td><td>co</td><td>Internet</td><td>$49</td><td><a href="mailto:jeff@lookahead.io?subject=Offer for domain name: geogram.co">Purchase</a></td><td>Mr</td><td>One fantastic Product</td><td>212 main, limerick, ME, 04048</td><td><input class='noExl' type='button' value='remove row?'/></td></tr>
+      <tr><td><a href="http://newscloud.com">newscloud.com</a></td><td>com</td><td>News</td><td>$19999</td><td><a href="mailto:jeff@lookahead.io?subject=Offer for domain name: newscloud.com">Purchase</a></td><td>Mr</td><td>One fantastic Product</td><td>212 main, limerick, ME, 04048</td><td><input class='noExl' type='button' value='remove row?'/></td></tr>
+      <tr><td><a href="http://popcloud.com">popcloud.com</a></td><td>com</td><td>Music</td><td>$14999</td><td><a href="mailto:jeff@lookahead.io?subject=Offer for domain name: popcloud.com">Purchase</a></td><td>Mr</td><td>One fantastic Product</td><td>212 main, limerick, ME, 04048</td><td><input class='noExl' type='button' value='remove row?'/></td></tr>
+      <tr><td><a href="http://geogram.com">geogram.com</a></td><td>com</td><td>Internet</td><td>$1999</td><td><a href="mailto:jeff@lookahead.io?subject=Offer for domain name: geogram.com">Purchase</a></td><td>Mr</td><td>One fantastic Product</td><td>212 main, limerick, ME, 04048</td><td><input class='noExl' type='button' value='remove row?'/></td></tr>
+      <tr><td><a href="http://handwave.com">handwave.com</a></td><td>com</td><td>Internet</td><td>$3499</td><td><a href="mailto:jeff@lookahead.io?subject=Offer for domain name: handwave.com">Purchase</a></td><td>Mr</td><td>One fantastic Product</td><td>212 main, limerick, ME, 04048</td><td><input class='noExl' type='button' value='remove row?'/></td></tr>
+      <tr><td><a href="http://newsclouds.com">newsclouds.com</a></td><td>com</td><td>News</td><td>$2999</td><td><a href="mailto:jeff@lookahead.io?subject=Offer for domain name: newsclouds.com">Purchase</a></td><td>Mr</td><td>One fantastic Product</td><td>212 main, limerick, ME, 04048</td><td><input class='noExl' type='button' value='remove row?'/></td></tr>
+      <tr><td><a href="http://publishingwithwordpress.com">publishingwithwordpress.com</a></td><td>com</td><td>Internet</td><td>$4999</td><td><a href="mailto:jeff@lookahead.io?subject=Offer for domain name: publishingwithwordpress.com">Purchase</a></td><td>Mr</td><td>One fantastic Product</td><td>212 main, limerick, ME, 04048</td><td><input class='noExl' type='button' value='remove row?'/></td></tr>
+      <tr><td><a href="http://teamgirl.com">teamgirl.com</a></td><td>com</td><td>Shopping</td><td>$1999</td><td><a href="mailto:jeff@lookahead.io?subject=Offer for domain name: teamgirl.com">Purchase</a></td><td>Mr</td><td>One fantastic Product</td><td>212 main, limerick, ME, 04048</td><td><input class='noExl' type='button' value='remove row?'/></td></tr>
+      <tr><td><a href="http://customlife.com">customlife.com</a></td><td>com</td><td>Internet</td><td>$1499</td><td><a href="mailto:jeff@lookahead.io?subject=Offer for domain name: customlife.com">Purchase</a></td><td>Mr</td><td>One fantastic Product</td><td>212 main, limerick, ME, 04048</td><td><input class='noExl' type='button' value='remove row?'/></td></tr>
+      <tr><td><a href="http://givingspace.com">givingspace.com</a></td><td>com</td><td>Internet</td><td>$1499</td><td><a href="mailto:jeff@lookahead.io?subject=Offer for domain name: givingspace.com">Purchase</a></td><td>Mr</td><td>One fantastic Product</td><td>212 main, limerick, ME, 04048</td><td><input class='noExl' type='button' value='remove row?'/></td></tr>
+      <tr><td><a href="http://lifestick.com">lifestick.com</a></td><td>com</td><td>Internet</td><td>$1499</td><td><a href="mailto:jeff@lookahead.io?subject=Offer for domain name: lifestick.com">Purchase</a></td><td>Mr</td><td>One fantastic Product</td><td>212 main, limerick, ME, 04048</td><td><input class='noExl' type='button' value='remove row?'/></td></tr>
+      <tr><td><a href="http://mainstory.com">mainstory.com</a></td><td>com</td><td>News</td><td>$1299</td><td><a href="mailto:jeff@lookahead.io?subject=Offer for domain name: mainstory.com">Purchase</a></td><td>Mr</td><td>One fantastic Product</td><td>212 main, limerick, ME, 04048</td><td><input class='noExl' type='button' value='remove row?'/></td></tr>
+</tbody>
+								<tfoot> 
+								<tr class='noExl'>  
+									<th>Domain</th> 
+									<th>gTld</th> 
+									<th>Category</th> 
+									<th>Price</th> 
+									<th>Contact</th>
+									<th>Title</th>
+									<th>Description</th>
+									<th>Directions</th>
+									<th>Remove</th>
+								</tr> 
+								</tfoot	> 
+							</table>					
+							
+					</div>
+					
+				</div><!-- end row -->
+			</div>
+		</div>
+		<div id="main">
+			<div class="container">
+				<h2 style="text-align: center;">Add to the Table Here</h2>
+				<div class="row main-row">
+					<div class="4u">
+						
+						<section>
+							<label for='col1' class='input'>Domain Name:</label>
+							<input type='text' id='col1' placeholder='Domain Name' /><br />
+							<label for='col4' class='input'>Price:</label>
+							<input type='text' id='col4' placeholder='Price' /><br />
+							<label for='col7' class='input'>Description:</label>
+							<textarea id='col7'>enter desc</textarea>
+							
+						</section>
+					
+					</div>
+					<div class="4u">
+						
+						<section>
+							<label for='col2' class='input'>gTld:</label>
+							<input type='text' id='col2' placeholder='gTld' /><br />
+							<label for='col5' class='input'>Contact:</label>
+							<input type='text' id='col5' placeholder='Contact' /><br />
+							<label for='col8' class='input'>Directions:</label>
+							<textarea id='col8'>108 main st</textarea>
+							<br />
+							<br />
+							<input type='button' class='button' id='store' value='Enter Row' />
+						</section>
+					
+					</div>
+					<div class="4u">
+					
+						<section>
+							<label for='col3' class='input'>Category:</label>
+							<input type='text' id='col3' placeholder='Category' /><br />
+							<label for='col6' class='input'>Title:</label>
+							<input type='text' id='col6' placeholder='Mrs' /><br />
+							
+						</section>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer-wrapper">
+			<div class="container">
+				<div class="row">
+	
+				</div>
+				<div class="row">
+					<div class="12u">
+						<form action="upload.php" method='POST' enctype='multipart/form-data' class="dropzone" id="my-awesome-dropzone">
+						  </form>
+						<div id="copyright">
+							&copy; Dynamic Table. All rights reserved. | Design: Kasey Wright
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- ********************************************************* -->
+	</body>
+</html>
